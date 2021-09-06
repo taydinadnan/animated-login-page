@@ -1,9 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import './constants.dart';
+import '../constants.dart';
 import '/widgets/login_form.dart';
 import '/widgets/sign_up_form.dart';
 import '/widgets/social_buttons.dart';

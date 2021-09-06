@@ -1,6 +1,7 @@
+import 'package:ani_loginapp/screens/auth_screen.dart';
+import 'package:ani_loginapp/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'auth_screen.dart';
 import 'constants.dart';
 
 void main() {
@@ -13,8 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Flutter Animation",
+      themeMode: ThemeMode.system,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        brightness: Brightness.light,
+        primarySwatch: Colors.red,
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
           fillColor: Colors.white38,
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: AuthScreen(),
+      home: HomeScreen(),
     );
   }
 }
