@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "464705815256",
+    "project_id": "noteapplication-e8034",
+    "storage_bucket": "noteapplication-e8034.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464705815256:android:5fb4b4e7534cc0517e8dad",
+        "android_client_info": {
+          "package_name": "com.example.ani_loginapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464705815256-e270ngnr8gb7d2h1du8mjo21mk9gkqor.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzwaRAjg1hxyi6YxcagH3gUT3TmnqrzPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464705815256-e270ngnr8gb7d2h1du8mjo21mk9gkqor.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

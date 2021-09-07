@@ -9,6 +9,7 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String email = '', pass = '';
     return Padding(
       padding: EdgeInsets.symmetric(
           horizontal: MediaQuery.of(context).size.width * 0.13),
@@ -18,6 +19,9 @@ class LoginForm extends StatelessWidget {
           children: [
             Spacer(),
             TextFormField(
+              onChanged: (value) {
+                email = value;
+              },
               decoration: InputDecoration(
                 hintText: "Email",
               ),
@@ -25,6 +29,9 @@ class LoginForm extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: defpaultPadding),
               child: TextFormField(
+                onChanged: (value) {
+                  pass = value;
+                },
                 obscureText: true,
                 decoration: InputDecoration(
                   hintText: "Password",

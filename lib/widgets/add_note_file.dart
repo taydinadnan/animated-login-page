@@ -1,7 +1,11 @@
 import 'package:ani_loginapp/constants.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class AddNote extends StatelessWidget {
+  TextEditingController title = TextEditingController();
+  TextEditingController content = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +22,7 @@ class AddNote extends StatelessWidget {
             Container(
               decoration: BoxDecoration(border: Border.all()),
               child: TextField(
+                controller: title,
                 decoration: InputDecoration(hintText: 'Title'),
               ),
             ),
@@ -26,6 +31,7 @@ class AddNote extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(border: Border.all()),
                 child: TextField(
+                  controller: content,
                   maxLines: null,
                   expands: true,
                   decoration: InputDecoration(hintText: 'Content'),

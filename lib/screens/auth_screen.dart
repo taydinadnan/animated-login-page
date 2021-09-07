@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -8,6 +9,8 @@ import '/widgets/sign_up_form.dart';
 import '/widgets/social_buttons.dart';
 
 class AuthScreen extends StatefulWidget {
+  static const routeName = '/home';
+
   @override
   _AuthScreenState createState() => _AuthScreenState();
 }
@@ -53,6 +56,8 @@ class _AuthScreenState extends State<AuthScreen>
   @override
   Widget build(BuildContext context) {
     final _size = MediaQuery.of(context).size;
+    String email = '', pass = '';
+
     return Scaffold(
       body: AnimatedBuilder(
         animation: _animationController,
@@ -139,11 +144,23 @@ class _AuthScreenState extends State<AuthScreen>
                     angle: -_animationTextRotate.value * pi / 180,
                     alignment: Alignment.topLeft,
                     child: InkWell(
-                      onTap: () {
+                      onTap: () async {
                         if (_isShowSignUp) {
                           updateView();
                         } else {
-                          //login
+                          try {
+                            UserCredential userCredential = await FirebaseAuth
+                                .instance
+                                .signInWithEmailAndPassword(
+                                    email: email, password: pass);
+                            Navigator.pushNamed(context, '/home');
+                          } on FirebaseAuthException catch (e) {
+                            if (e.code == 'user-not-found') {
+                              print('No user found for that email.');
+                            } else if (e.code == 'wrong-password') {
+                              print('Wrong password provided for that user.');
+                            }
+                          }
                         }
                       },
                       child: Container(
@@ -181,9 +198,27 @@ class _AuthScreenState extends State<AuthScreen>
                     angle: (90 - _animationTextRotate.value) * pi / 180,
                     alignment: Alignment.topRight,
                     child: InkWell(
-                      onTap: () {
+                      onTap: () async {
                         if (_isShowSignUp) {
-                          //sign up
+                          try {
+                            // ignore: unused_local_variable
+                            UserCredential userCredential = await FirebaseAuth
+                                .instance
+                                .createUserWithEmailAndPassword(
+                              email: email,
+                              password: pass,
+                            );
+                            Navigator.pushNamed(context, 'home');
+                          } on FirebaseAuthException catch (e) {
+                            if (e.code == 'weak-password') {
+                              print('The password provided is too weak.');
+                            } else if (e.code == 'email-already-in-use') {
+                              print(
+                                  'The account already exists for that email.');
+                            }
+                          } catch (e) {
+                            print(e);
+                          }
                         } else {
                           updateView();
                         }

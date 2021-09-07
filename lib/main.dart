@@ -1,10 +1,13 @@
 import 'package:ani_loginapp/screens/auth_screen.dart';
 import 'package:ani_loginapp/screens/home_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'constants.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -29,7 +32,10 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: HomeScreen(),
+      home: AuthScreen(),
+      routes: {
+        AuthScreen.routeName: (ctx) => HomeScreen(),
+      },
     );
   }
 }
