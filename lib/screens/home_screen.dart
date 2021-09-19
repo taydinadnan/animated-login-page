@@ -1,5 +1,6 @@
 import 'package:ani_loginapp/constants.dart';
 import 'package:ani_loginapp/screens/notes_screen.dart';
+import 'package:ani_loginapp/widgets/vertical_scroll.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {

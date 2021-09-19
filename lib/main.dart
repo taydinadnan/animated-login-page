@@ -1,5 +1,6 @@
 import 'package:ani_loginapp/screens/auth_screen.dart';
 import 'package:ani_loginapp/screens/home_screen.dart';
+import 'package:ani_loginapp/widgets/vertical_scroll.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -32,10 +33,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: AuthScreen(),
-      routes: {
-        AuthScreen.routeName: (ctx) => HomeScreen(),
-      },
+      home: HomeScreen(),
     );
   }
 }
